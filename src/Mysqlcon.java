@@ -16,7 +16,7 @@ public class Mysqlcon {
 
 	public static void main(String args[]) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		connection = DriverManager.getConnection(url,username,password);
-		PreparedStatement ps = connection.prepareStatement("INSERT INTO `databasePersoon`.`persoon` (`persoonFirstname`) VALUES ('setVoornaam');");
+		PreparedStatement ps = connection.prepareStatement("INSERT INTO `persoon`.`voornaam` (`persoonFirstname`) VALUES ('setVoornaam');");//deze moet nog nodig worden gefixt
 
 		int status = ps.executeUpdate();
 
