@@ -1,3 +1,7 @@
+package database;
+
+import util.Person;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -6,11 +10,11 @@ import java.util.List;
 
 public class Mysqlcon {
 
-
+	//connection configuration
 
 	Connection connection = null;
 	static String databaseName = "persoondb";
-	static String url = "jdbc:mysql://localhost:3306/" +databaseName+ "?serverTimezone=CET";
+	static String url = "jdbc:mysql://localhost:3306/" + databaseName + "?serverTimezone=CET";
 
 	static String username = "puchkii";
 	static String password = "4>uF2=JC4%xa->C";
@@ -25,9 +29,13 @@ public class Mysqlcon {
 		}
 	}
 
-	public void insertPerson(Persoon persoon) {
+	public Connection getConnection() {
+		return connection;
+	}
+
+	public void insertPerson(Person person) {
 		try {
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO `personen` (`firstname`) VALUES ('"+persoon.getVoornaam()+ "')");
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO `personen` (`firstname`,`lastname`,`birthday`) VALUES ('"+person.getFirstName()+ "')");
 			int status = ps.executeUpdate();
 
 			if (status != 0){
@@ -39,7 +47,7 @@ public class Mysqlcon {
 		}
 	}
 
-	public List<Persoon> getAll(){
+	public List<Person> getAll(){
 
 		return null;
 	}
