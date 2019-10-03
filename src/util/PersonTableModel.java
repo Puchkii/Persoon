@@ -9,9 +9,9 @@ public class PersonTableModel implements TableModel {
 	List<Person> personen = new ArrayList<Person>();
 
 	public PersonTableModel(){
-		personen.add(new Person("Firstname", "Lastname"));
-		personen.add(new Person("Joep", "Meloen"));
-		personen.add(new Person("Piet", "Verdriet"));
+		personen.add(new Person("Firstname", "Lastname", "60"));
+		personen.add(new Person("Joep", "Meloen",""));
+		personen.add(new Person("Piet", "Verdriet",""));
 
 	}
 

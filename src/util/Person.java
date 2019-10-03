@@ -41,6 +41,12 @@ public class Person{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	public int getDaysAlive(){return DaysAlive;}
+
+	public void setDaysAlive(int DaysAlive) {
+		this.DaysAlive = DaysAlive;
+	}
 //
 //	//gegevens word hier gekoppeld aan com.entities.Persoon bij naam bijv. kevin
 //	database.Mysqlcon mysqlcon = new Mysqlcon();
