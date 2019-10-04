@@ -10,8 +10,8 @@ public class PersonTableModel implements TableModel {
 
 	public PersonTableModel(){
 		personen.add(new Person("Firstname", "Lastname", "6"));
-		personen.add(new Person("Joep", "Meloen",""));
-		personen.add(new Person("Piet", "Verdriet",""));
+		personen.add(new Person("Joep", "Meloen","9"));
+		personen.add(new Person("Piet", "Verdriet","6"));
 
 	}
 

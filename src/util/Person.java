@@ -37,10 +37,10 @@ public class Person{
 		this.lastName = lastName;
 	}
 
-	public int getDaysAlive(){return DaysAlive;}
+	public int getDaysAlive(){return daysAlive;}
 
-	public void setDaysAlive(int DaysAlive) {
-		this.DaysAlive = DaysAlive;
+	public void setDaysAlive(int daysAlive) {
+		this.daysAlive = daysAlive;
 	}
 //
 //	//gegevens word hier gekoppeld aan com.entities.Persoon bij naam bijv. kevin
