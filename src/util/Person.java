@@ -1,21 +1,16 @@
 package util;
 
-import database.Mysqlcon;
-
-import javax.swing.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 public class Person{
 
 	private int id;
 	private String firstName;
 	private String lastName;
+	private int daysAlive;
 
-	public Person(String firstName, String lastName){
+	public Person(String firstName, String lastName, int daysAlive){
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.daysAlive = daysAlive;
 	}
 
 	public int getId() {
