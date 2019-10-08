@@ -42,7 +42,9 @@ public class Person{
 	public void setDaysAlive(int daysAlive) {
 		this.daysAlive = daysAlive;
 	}
-//
+
+
+
 //	//gegevens word hier gekoppeld aan com.entities.Persoon bij naam bijv. kevin
 //	database.Mysqlcon mysqlcon = new Mysqlcon();
 //	//mysqlcon.init();

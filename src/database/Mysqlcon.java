@@ -25,7 +25,7 @@ public class Mysqlcon {
 		try {
 			connection = DriverManager.getConnection(url,username,password);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			e.printStackTrace(); //error print
 		}
 	}
 
@@ -33,22 +33,24 @@ public class Mysqlcon {
 		return connection;
 	}
 
-	public void insertPerson(Person person) {
-		try {
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO `personen` (`firstname`,`lastname`,`birthday`) VALUES ('"+person.getFirstName()+ "')");
-			int status = ps.executeUpdate();
 
-			if (status != 0){
-				System.out.println("Database was connected");
-				System.out.println("Record was inserted");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public List<Person> getAll(){
-
-		return null;
-	}
+	//sql insert commands that dont belong here with connecting to database
+//	public void insertPerson(Person person) {
+//		try {
+//			PreparedStatement ps = connection.prepareStatement("INSERT INTO `personen` (`firstname`,`lastname`,`birthday`) VALUES ('"+person.getFirstName()+ "')");
+//			int status = ps.executeUpdate();
+//
+//			if (status != 0){
+//				System.out.println("Database was connected");
+//				System.out.println("Record was inserted");
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//
+//	public List<Person> getAll(){
+//
+//		return null;
+//	}
 }
