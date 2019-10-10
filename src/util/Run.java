@@ -14,6 +14,7 @@ public class Run extends JFrame{
 		static GraphicsConfiguration gc;
 		static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
+		//Jframe configuration
 	public Run(GraphicsConfiguration gc) {
 		super(gc);
 		setTitle("Userlist By Puchkii");
@@ -28,9 +29,11 @@ public class Run extends JFrame{
 		JButton button = new JButton("Submit");
 		panel.add(button);
 		button.addActionListener(new ActionListener() {
+
+			//overrides text in input field
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
-				myInput.setText("Geklikt");//actie na de klik
+				myInput.setText("pp hard");//actie na de klik
 			}
 		});
 		JTable table = new JTable();

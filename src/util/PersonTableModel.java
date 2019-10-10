@@ -18,13 +18,15 @@ public class PersonTableModel extends DefaultTableModel {
 		//personen.add(new Person("Firstname", "Lastname",6));
 		personen.add(new Person("Joep", "Meloen",9));
 		personen.add(new Person("Piet", "Verdriet",6));
+		personen.add(new Person("Piet", "Verdriet",6));
 
-		//String[] column = {columnIdentifiers.get(0).getClass()};
+		//String[] column = {columnIdentifiers.get(0).getClass()}; //test string for column names
 
 		String[] dummy = {personen.get(0).getFirstName(), personen.get(0).getLastName(), Integer.toString(personen.get(0).getDaysAlive())};
 		addRow(dummy);
 	}
 
+	//persons list
 	public List<Person> getPersonen() {
 		return personen;
 	}
