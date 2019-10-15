@@ -19,7 +19,6 @@ public class Mysqlcon {
 	private final String username = "puchkii";
 	private final String password = "4>uF2=JC4%xa->C";
 
-
 	//establishes connection to db
 	
 	public void init(){
