@@ -1,7 +1,7 @@
 package util;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,17 +32,9 @@ public class Persons extends Mysqlcon{
 	}
 	
 	public void add(String firstname) {
-		 System.out.println("Inserting records into the table...");
-	      Statement stmt;
-		try {
-			stmt = connection.createStatement();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	      
-	      String sql = "INSERT INTO user " +
-	                   "VALUES ()";
+		PreparedStatement stmt = (PreparedStatement) connection.createStatement();
+		stmt.execute("INSERT INTO user () VALUES (inputFirstname)");
+	}
 	
 	public void delete(int id) {
 		

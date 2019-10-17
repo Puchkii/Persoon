@@ -1,3 +1,6 @@
+import util.Persons;
+import util.PersonTableModel;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,10 +11,10 @@ import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JSplitPane;
 import javax.swing.JInternalFrame;
-import util.PersonTableModel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.sql.PreparedStatement;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
@@ -21,15 +24,15 @@ public class MainWindow {
 	private final JPanel panel = new JPanel();
 	private JLabel lblVoornaam;
 	private JLabel lblAchternaam;
-	private JLabel lblNewLabel_2;
+	private JLabel lblGeboortedatum;
 	/**
 	 * @wbp.nonvisual location=-27,524
 	 */
 	private final PersonTableModel personTableModel = new PersonTableModel();
 	private JTable tablePersons;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField inputFirstname;
+	private JTextField inputBirthday;
+	private JTextField inputLastname;
 
 	/**
 	 * Launch the application.
@@ -74,9 +77,9 @@ public class MainWindow {
 		lblAchternaam.setBounds(142, 10, 96, 13);
 		panel.add(lblAchternaam);
 		
-		lblNewLabel_2 = new JLabel("Geboortedatum");
-		lblNewLabel_2.setBounds(278, 10, 96, 13);
-		panel.add(lblNewLabel_2);
+		lblGeboortedatum = new JLabel("Geboortedatum");
+		lblGeboortedatum.setBounds(278, 10, 96, 13);
+		panel.add(lblGeboortedatum);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 94, 394, 379);
@@ -89,25 +92,39 @@ public class MainWindow {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("geklikt");
+				System.out.println("Clicked add button");
+				PreparedStatement stmt = (PreparedStatement) connection.createStatement();
+				stmt.execute("INSERT INTO user (firstname) VALUES (inputFirstname)");
 			}
 		});
 		btnAdd.setBounds(278, 52, 96, 21);
 		panel.add(btnAdd);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 23, 85, 19);
-		panel.add(textField);
-		textField.setColumns(10);
+		inputFirstname = new JTextField();
+		inputFirstname.setBounds(10, 23, 96, 19);
+		panel.add(inputFirstname);
+		inputFirstname.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(276, 23, 96, 19);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		inputBirthday = new JTextField();
+		inputBirthday.setBounds(278, 23, 96, 19);
+		panel.add(inputBirthday);
+		inputBirthday.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(142, 23, 116, 19);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		inputLastname = new JTextField();
+		inputLastname.setBounds(142, 23, 96, 19);
+		panel.add(inputLastname);
+		inputLastname.setColumns(10);
+		
+		JButton btnUpdate = new JButton("Update");
+		btnUpdate.setBounds(10, 52, 96, 21);
+		panel.add(btnUpdate);
+		
+		JButton btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnDelete.setBounds(142, 52, 96, 21);
+		panel.add(btnDelete);
 	}
 }
