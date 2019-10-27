@@ -1,12 +1,8 @@
 package database;
 
-import util.Person;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 public class Mysqlcon {
 
@@ -20,6 +16,10 @@ public class Mysqlcon {
 	private final String password = "4>uF2=JC4%xa->C";
 
 	//establishes connection to db
+	
+	public Mysqlcon() {
+		init();
+	}
 	
 	public void init(){
 		try {

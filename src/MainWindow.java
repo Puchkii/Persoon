@@ -1,24 +1,14 @@
-import util.Persons;
 import util.PersonTableModel;
+import util.Persons;
+import database.Mysqlcon;
 
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import java.awt.Color;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JSplitPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JButton;
+import java.awt.*;
+import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
 
-public class MainWindow {
+public class MainWindow extends Mysqlcon{
 
 	private JFrame frmPersondbByPuchkii;
 	private final JPanel panel = new JPanel();
@@ -33,6 +23,7 @@ public class MainWindow {
 	private JTextField inputFirstname;
 	private JTextField inputBirthday;
 	private JTextField inputLastname;
+	
 
 	/**
 	 * Launch the application.
@@ -62,22 +53,29 @@ public class MainWindow {
 	 */
 	private void initialize() {
 		frmPersondbByPuchkii = new JFrame();
+		frmPersondbByPuchkii.setBackground(Color.BLACK);
 		frmPersondbByPuchkii.setTitle("PersonDB by Puchkii");
 		frmPersondbByPuchkii.setBounds(100, 100, 428, 520);
 		frmPersondbByPuchkii.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLACK);
 		frmPersondbByPuchkii.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
 		lblVoornaam = new JLabel("Voornaam");
+		lblVoornaam.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblVoornaam.setForeground(Color.WHITE);
 		lblVoornaam.setBounds(10, 10, 96, 13);
 		panel.add(lblVoornaam);
 		
 		lblAchternaam = new JLabel("Achternaam");
+		lblAchternaam.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblAchternaam.setForeground(Color.WHITE);
 		lblAchternaam.setBounds(142, 10, 96, 13);
 		panel.add(lblAchternaam);
 		
 		lblGeboortedatum = new JLabel("Geboortedatum");
+		lblGeboortedatum.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblGeboortedatum.setForeground(Color.WHITE);
 		lblGeboortedatum.setBounds(278, 10, 96, 13);
 		panel.add(lblGeboortedatum);
 		
@@ -90,11 +88,13 @@ public class MainWindow {
 		tablePersons.setModel(personTableModel);
 		
 		JButton btnAdd = new JButton("Add");
+		btnAdd.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Clicked add button");
-				PreparedStatement stmt = (PreparedStatement) connection.createStatement();
-				stmt.execute("INSERT INTO user (firstname) VALUES (inputFirstname)");
+				personTableModel.addPersonFirst(inputFirstname.getText());
+				personTableModel.addPersonLast(inputLastname.getText());
+				personTableModel.addPersonBirth(inputBirthday.getText());
 			}
 		});
 		btnAdd.setBounds(278, 52, 96, 21);
@@ -116,12 +116,21 @@ public class MainWindow {
 		inputLastname.setColumns(10);
 		
 		JButton btnUpdate = new JButton("Update");
+		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Clicked update button");
+			}
+		});
 		btnUpdate.setBounds(10, 52, 96, 21);
 		panel.add(btnUpdate);
 		
 		JButton btnDelete = new JButton("Delete");
+		btnDelete.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("Clicked delete button");
+				//delete action should be added here
 			}
 		});
 		btnDelete.setBounds(142, 52, 96, 21);

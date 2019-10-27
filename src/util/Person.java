@@ -5,13 +5,12 @@ public class Person{
 	private int id;
 	private String firstName;
 	private String lastName;
-	private int daysAlive;
 	private String birthday;
 
 	public Person(String firstName, String lastName, String birthday){
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.birthday =birthday;
+		this.birthday = birthday;
 	}
 
 	public int getId() {
@@ -37,19 +36,24 @@ public class Person{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-	public int getDaysAlive(){return daysAlive;}
-
-	public void setDaysAlive(int daysAlive) {
-		this.daysAlive = daysAlive;
-	}
-
 	
 	public String[] getRow() {
-		return new String[]{getFirstName(), getLastName(), Integer.toString(getDaysAlive())};
+		return new String[]{getFirstName(), getLastName(), getBirthday()};
 	}
 	
 	public String toString() {
 		return firstName;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	
+	public String toString1() {
+		return birthday;
 	}
 }

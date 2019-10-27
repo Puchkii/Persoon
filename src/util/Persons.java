@@ -31,17 +31,28 @@ public class Persons extends Mysqlcon{
 		return persons.iterator();
 	}
 	
-	public void add(String firstname) {
-		PreparedStatement stmt = (PreparedStatement) connection.createStatement();
-		stmt.execute("INSERT INTO user () VALUES (inputFirstname)");
+	public Person add(String firstname) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO user (firstname) VALUES (?)");
+			stmt.setString(1, firstname);
+			stmt.execute();
+			Person p = new Person(firstname, null, null);
+			persons.add(p);
+			return p;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 	
 	public void delete(int id) {
 		
 	}
 	
-	public void update(String firstname) {
-		
+	public Person update(int id, String firstname) {
+		return null;
 	}
 
 }
