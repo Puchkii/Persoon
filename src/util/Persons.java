@@ -54,7 +54,9 @@ public class Persons extends Mysqlcon{
 	}
 	
 	public Person update(int id, String firstname, String lastname, String birthday) {
-		return null;
+		try {
+			PreparedStatement stmt = connection.prepareStatement("UPDATE INTO user (firstname, lastname, birthday)")
+		}
 	}
 
 }
