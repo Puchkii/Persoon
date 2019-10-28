@@ -92,9 +92,9 @@ public class MainWindow extends Mysqlcon{
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Clicked add button");
-				personTableModel.addPersonFirst(inputFirstname.getText());
-				personTableModel.addPersonLast(inputLastname.getText());
-				personTableModel.addPersonBirth(inputBirthday.getText());
+				personTableModel.addPerson(inputFirstname.getText(),inputLastname.getText(),inputBirthday.getText());
+//				personTableModel.addPersonLast(inputLastname.getText());
+//				personTableModel.addPersonBirth(inputBirthday.getText());
 			}
 		});
 		btnAdd.setBounds(278, 52, 96, 21);
@@ -117,22 +117,22 @@ public class MainWindow extends Mysqlcon{
 		
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnUpdate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("Clicked update button");
-			}
-		});
+//		btnUpdate.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				System.out.println("Clicked update button");
+//			}
+//		});
 		btnUpdate.setBounds(10, 52, 96, 21);
 		panel.add(btnUpdate);
 		
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnDelete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("Clicked delete button");
+//		btnDelete.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				System.out.println("Clicked delete button");
 				//delete action should be added here
-			}
-		});
+//			}
+//		});
 		btnDelete.setBounds(142, 52, 96, 21);
 		panel.add(btnDelete);
 	}

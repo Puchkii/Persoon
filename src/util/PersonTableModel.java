@@ -23,16 +23,9 @@ public class PersonTableModel extends DefaultTableModel {
 		
 	}
 	
-	public void addPersonFirst(String firstname) {
-		addRow(persons.add(firstname).getRow());
+	public void addPerson(String firstname, String lastname, String birthday) {
+		addRow(persons.add(firstname, lastname, birthday).getRow());
 	}
-	public void addPersonLast(String lastname) {
-		addRow(persons.add(lastname).getRow());
-	}
-	public void addPersonBirth(String birthday) {
-		addRow(persons.add(birthday).getRow());
-	}
-
 	
 //	public void deletePerson(String firstname, String lastname, String birthday) {
 //		

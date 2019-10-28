@@ -31,12 +31,14 @@ public class Persons extends Mysqlcon{
 		return persons.iterator();
 	}
 	
-	public Person add(String firstname) {
+	public Person add(String firstname, String lastname, String birthday) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO user (firstname) VALUES (?)");
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO user (firstname, lastname, birthday) VALUES (?, ?, ?)");
 			stmt.setString(1, firstname);
+			stmt.setString(2, lastname);
+			stmt.setString(3, birthday);
 			stmt.execute();
-			Person p = new Person(firstname, null, null);
+			Person p = new Person(firstname, lastname, birthday);
 			persons.add(p);
 			return p;
 			
@@ -51,7 +53,7 @@ public class Persons extends Mysqlcon{
 		
 	}
 	
-	public Person update(int id, String firstname) {
+	public Person update(int id, String firstname, String lastname, String birthday) {
 		return null;
 	}
 
