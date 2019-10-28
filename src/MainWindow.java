@@ -73,10 +73,17 @@ public class MainWindow extends Mysqlcon{
 		lblAchternaam.setBounds(142, 10, 96, 13);
 		panel.add(lblAchternaam);
 		
-		lblGeboortedatum = new JLabel("Geboortedatum");
+		
+		String lineGeboorte = "Geboortedatum ";
+		String lineDateFormat = "YY-MM-DD";
+		
+		//HHHMMMMMMMMMMMMM???????????????????
+		String lineLabelGeboorte = lineGeboorte + "\n" + lineDateFormat;
+		lblGeboortedatum = new JLabel lineLabelGeboorte;
+		
 		lblGeboortedatum.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblGeboortedatum.setForeground(Color.WHITE);
-		lblGeboortedatum.setBounds(278, 10, 96, 13);
+		lblGeboortedatum.setBounds(278, 0, 96, 23);
 		panel.add(lblGeboortedatum);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -92,10 +99,7 @@ public class MainWindow extends Mysqlcon{
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Clicked add button");
-				personTableModel.addPerson(inputFirstname.getText(),inputLastname.getText(),inputBirthday.getText());
-//				personTableModel.addPersonLast(inputLastname.getText());
-//				personTableModel.addPersonBirth(inputBirthday.getText());
-			}
+				personTableModel.addPerson(inputFirstname.getText(),inputLastname.getText(),inputBirthday.getText());			}
 		});
 		btnAdd.setBounds(278, 52, 96, 21);
 		panel.add(btnAdd);

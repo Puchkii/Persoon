@@ -14,7 +14,7 @@ public class PersonTableModel extends DefaultTableModel {
 	//defines table model for persons
 	public PersonTableModel(){
 		persons = new Persons();
-		setColumnIdentifiers(new String[] {"Voornaam", "Achternaam", "Dagen geleefd"});
+		setColumnIdentifiers(new String[] {"Voornaam", "Achternaam", "Geboortedatum"});
 		Iterator<Person> iterator = persons.iterator();
 		while(iterator.hasNext()) {
 			Person p = iterator.next();
